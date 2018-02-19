@@ -1,36 +1,26 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import ReactDOM from 'react-dom';
 class App extends React.Component{
-	render() {
-	return(
-		<div>
-		<h1>hello,{this.props.name}</h1>
-		<h3>array:{this.props.propArray}</h3>
-		<h3>Bool:{this.props.propBool?"true.." : "false.."}</h3>
-		<h3>Func:{this.props.propFunc(3)}</h3>
-		<h3>number:{this.props.propNumber}</h3>
-		<h3>string:{this.props.propString}</h3>
-		</div>
-		);
+	constructor(){
+	super();
+	this.state={
+		data:[]
 	}
-}
-App.propTypes = {
-	name:PropTypes.string,
-	propArray:PropTypes.array.isRequired,
-	propBool:PropTypes.bool.idRequired,
-	propFunc:PropTypes.func,
-	propNumber:PropTypes.number,
-	propString:PropTypes.string,
-};
-App.defaultProps={
-	name : 'Tutorials.com',
-	propArray:[1,2,3,4,5],
-	propBool:true,
-	propFunc:function(e){
-		return e
-	},
-	propNumber:1,
-	propString:"string value"
-}
+	this.setStateHandler = this.setStateHandler.bind(this);
+
+	};
+	setStateHandler(){
+	var item = "setState..."
+	var myArray = this.state.data.slice();
+	myArray.push(item);
+	this.setState({data:myArray})
+	};
+	render(){
+	return (
+	<div>
+	<button onClick={this.setStateHandler}>SET STATE</button>
+	<h4>state array:{this.state.data}</h4>
+	</div>
+	);
+	}
+} 
 export default App;
