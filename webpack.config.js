@@ -8,6 +8,9 @@ var config = {
       inline: true,
       port: 8080
    },
+   externals:{
+      'react':'React'
+   },
    module: {
       loaders: [
          {
@@ -21,4 +24,4 @@ var config = {
       ]
    }
 }
-module.exports = config;
+module.exports = config; 
